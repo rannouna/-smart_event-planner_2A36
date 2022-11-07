@@ -2,7 +2,7 @@
 #include "connection.h"
 
 Connection::Connection(){}
-
+/////////////////test
 bool Connection::createconnexion()
 {
     db=QSqlDatabase::addDatabase("QODBC");
