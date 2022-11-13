@@ -32,6 +32,9 @@ public:
     bool supprimer(int);
     bool modifier();
    QSqlQueryModel *afficher();
+   QSqlQueryModel * rechercher(QString);
+    QSqlQueryModel *tri();
+    QSqlQueryModel * trid();
 
 
 

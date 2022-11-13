@@ -81,3 +81,32 @@ bool EVENEMENT::modifier()
    return query.exec();
 
 }
+QSqlQueryModel *EVENEMENT::rechercher(QString rech)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+        model->setQuery("select * from EVENEMENT where ID_EVENEMENT LIKE '"+rech+"%'");
+    return model;
+}
+
+QSqlQueryModel *EVENEMENT::tri(){
+
+   QSqlQuery *q = new QSqlQuery();
+   QSqlQueryModel *model = new QSqlQueryModel();
+   q->prepare("SELECT * FROM EVENEMENT ORDER BY TYPE ");
+   q->exec();
+   model->setQuery(*q);
+
+   return model;
+}
+
+QSqlQueryModel *EVENEMENT::trid(){
+
+   QSqlQuery *q = new QSqlQuery();
+   QSqlQueryModel *model = new QSqlQueryModel();
+   q->prepare("SELECT * FROM EVENEMENT ORDER BY TYPE DESC");
+   q->exec();
+   model->setQuery(*q);
+
+   return model;
+}
