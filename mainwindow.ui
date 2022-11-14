@@ -11,20 +11,23 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Gestion des Clients</string>
+   <string>Gestion des Evenements</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
+      <x>20</x>
+      <y>10</y>
       <width>1041</width>
       <height>541</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/backround/49288c02e77c69aba39e0de2615dd6e4.jpg);</string>
+    </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -38,6 +41,12 @@
         <width>141</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 153, 94);
+border-radius:15px;
+
+</string>
       </property>
       <property name="text">
        <string>ID_Evenement</string>
@@ -151,7 +160,7 @@
      <widget class="QComboBox" name="lineEdit_TYPE">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>190</x>
         <y>210</y>
         <width>201</width>
         <height>28</height>
@@ -391,14 +400,26 @@
      <widget class="QPushButton" name="statsmed">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>350</y>
-        <width>211</width>
-        <height>28</height>
+        <x>640</x>
+        <y>-50</y>
+        <width>301</width>
+        <height>231</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <italic>true</italic>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
       </property>
       <property name="text">
        <string>Appliquer Statistique</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -409,10 +430,10 @@
      <widget class="QPushButton" name="btn_imp">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>290</y>
-        <width>93</width>
-        <height>28</height>
+        <x>730</x>
+        <y>0</y>
+        <width>261</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="text">
