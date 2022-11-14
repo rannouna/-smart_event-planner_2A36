@@ -1,8 +1,143 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include"evenement.h"
+#include <QMessageBox>
 #include <QIntValidator>
 #include <QMessageBox>
+#include <QSqlTableModel>
+#include <QDebug>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include"EVENEMENT.h"
+
+
+
+#include <QIntValidator>
+#include "QSqlQuery"
+#include "QStringListModel"
+#include<QFileDialog>
+#include<QTextDocument>
+#include<QTextStream>
+#include<QGraphicsView>
+#include<QtPrintSupport/QPrintDialog>
+#include<QPdfWriter>
+#include<QSqlQueryModel>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QMessageBox>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QtPrintSupport/QPrinter>
+#include <QDesktopServices>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include "ui_mainwindow.h"
+#include"EVENEMENT.h"
+#include <QIntValidator>
+#include <QMessageBox>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QDialog>
+#include <QPixmap>
+#include <QFile>
+#include <QDialog>
+#include <QFileDialog>
+#include <QUrl>
+#include <QSystemTrayIcon>
+#include<QPropertyAnimation>
+#include <QRegularExpression>
+#include <QTranslator>
+#include <QPixmap>
+#include<QLineSeries>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QFileDialog>
+#include<QTextDocument>
+#include<QTextStream>
+#include<QGraphicsView>
+#include<QtPrintSupport/QPrintDialog>
+#include<QPdfWriter>
+#include<QSqlQueryModel>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QMessageBox>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QtPrintSupport/QPrinter>
+#include <QDebug>
+#include <QDate>
+#include <QDateTime>
+#include <QMessageBox>
+#include <QSqlTableModel>
+#include <QDebug>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+
+#include <QMediaPlayer>
+#include <QFileDialog>
+
+
+
+#include <QIntValidator>
+#include "QSqlQuery"
+#include "QStringListModel"
+#include<QFileDialog>
+#include<QTextDocument>
+#include<QTextStream>
+#include<QGraphicsView>
+#include<QtPrintSupport/QPrintDialog>
+#include<QPdfWriter>
+#include<QSqlQueryModel>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QMessageBox>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QtPrintSupport/QPrinter>
+#include <QDesktopServices>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QDesktopServices>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QMessageBox>
+#include <QSqlTableModel>
+#include <QDebug>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+
+
+
+
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
 MainWindow::MainWindow(QWidget *parent):
  QMainWindow(parent),
      ui(new Ui::MainWindow)
@@ -22,7 +157,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_modifier_clicked()
 {
     int ID_EVENEMENT=ui->ID_EVENEMENTL_modif->text().toInt();
-    QString TYPE=ui->lineEdit_TYPE->text();
+    QString TYPE=ui->lineEdit_TYPE->currentText();
     QString THEME=ui->lineEdit_THME->text();
     int DEPENSE=ui->lineEdit_Depense->text().toInt();
     QDate DATE_E=ui->dateEdit->date();
@@ -128,8 +263,7 @@ void MainWindow::on_statsmed_clicked()
 
      QString f = QString("Autre "+QString::number((number6*100)/total,'f',2)+"%" );
 
-
-     QPieSeries *series = new QPieSeries();
+QPieSeries *series = new QPieSeries();
      series->append(a,number1);
      series->append(b,number2);
      series->append(c,number3);
@@ -191,72 +325,6 @@ void MainWindow::on_statsmed_clicked()
 
 }
 
-void MainWindow::on_btn_imp_clicked()
-{
-    QString strStream;
-                             QTextStream out(&strStream);
-
-                             const int rowCount = ui->tablevol->model()->rowCount();
-                             const int columnCount = ui->tablevol->model()->columnCount();
-                             QString TT = QDate::currentDate().toString("yyyy/MM/dd");
-                             out <<"<html>\n"
-                                   "<head>\n"
-                                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                                 << "<title>ERP - COMmANDE LIST<title>\n "
-                                 << "</head>\n"
-                                 "<body bgcolor=#ffffff link=#5000A0>\n"
-                                 "<h1 style=\"text-align: center;\"><strong> ******LISTE DES  EVENEMENT ******"+TT+" </strong></h1>"
-                                 "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
-                                   "</br> </br>";
-                             // headers
-                             out << "<thead><tr bgcolor=#d6e5ff>";
-                             for (int column = 0; column < columnCount; column++)
-                                 if (!ui->tablevol->isColumnHidden(column))
-                                     out << QString("<th>%1</th>").arg(ui->tablevol->model()->headerData(column, Qt::Horizontal).toString());
-                             out << "</tr></thead>\n";
-
-                             // data table
-                             for (int row = 0; row < rowCount; row++) {
-                                 out << "<tr>";
-                                 for (int column = 0; column < columnCount; column++) {
-                                     if (!ui->tablevol->isColumnHidden(column)) {
-                                         QString data =ui->tablevol->model()->data(ui->tablevol->model()->index(row, column)).toString().simplified();
-                                         out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
-                                     }
-                                 }
-                                 out << "</tr>\n";
-                             }
-                             out <<  "</table>\n"
-                                 "</body>\n"
-                                 "</html>\n";
-
-                             QTextDocument *document = new QTextDocument();
-                             document->setHtml(strStream);
-
-                             QPrinter printer;
-
-                             QPrintDialog *dialog = new QPrintDialog(&printer, nullptr);
-                             if (dialog->exec() == QDialog::Accepted) {
-                                 document->print(&printer);
-                             }
-
-                             delete document;
-
-
-}
-
-    void MainWindow::on_pb_exit_clicked()
-    {
-        QMessageBox::StandardButton reply = QMessageBox :: question (this,
-                               "EXIT","Voulez-vous vraiment sortir ?",
-                            QMessageBox :: Yes | QMessageBox :: No);
-        if (reply == QMessageBox :: Yes)
-            {QApplication ::quit();}
-        else {
-            qDebug() <<"No is clicked";
-             }
-
-    }
 
 
     void MainWindow::on_btn_imp_clicked()
@@ -264,8 +332,8 @@ void MainWindow::on_btn_imp_clicked()
         QString strStream;
                                  QTextStream out(&strStream);
 
-                                 const int rowCount = ui->tab_em->model()->rowCount();
-                                 const int columnCount = ui->tab_em->model()->columnCount();
+                                 const int rowCount = ui->afficher->model()->rowCount();
+                                 const int columnCount = ui->afficher->model()->columnCount();
                                  QString TT = QDate::currentDate().toString("yyyy/MM/dd");
                                  out <<"<html>\n"
                                        "<head>\n"
@@ -273,22 +341,22 @@ void MainWindow::on_btn_imp_clicked()
                                      << "<title>ERP - COMmANDE LIST<title>\n "
                                      << "</head>\n"
                                      "<body bgcolor=#ffffff link=#5000A0>\n"
-                                     "<h1 style=\"text-align: center;\"><strong> ******LISTE DES  licence commerciale ******"+TT+" </strong></h1>"
+                                     "<h1 style=\"text-align: center;\"><strong> ******LISTE DES  EVENEMENT ******"+TT+" </strong></h1>"
                                      "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
                                        "</br> </br>";
                                  // headers
                                  out << "<thead><tr bgcolor=#d6e5ff>";
                                  for (int column = 0; column < columnCount; column++)
-                                     if (!ui->tab_em->isColumnHidden(column))
-                                         out << QString("<th>%1</th>").arg(ui->tab_em->model()->headerData(column, Qt::Horizontal).toString());
+                                     if (!ui->afficher->isColumnHidden(column))
+                                         out << QString("<th>%1</th>").arg(ui->afficher->model()->headerData(column, Qt::Horizontal).toString());
                                  out << "</tr></thead>\n";
 
                                  // data table
                                  for (int row = 0; row < rowCount; row++) {
                                      out << "<tr>";
                                      for (int column = 0; column < columnCount; column++) {
-                                         if (!ui->tab_em->isColumnHidden(column)) {
-                                             QString data =ui->tab_em->model()->data(ui->tab_em->model()->index(row, column)).toString().simplified();
+                                         if (!ui->afficher->isColumnHidden(column)) {
+                                             QString data =ui->afficher->model()->data(ui->afficher->model()->index(row, column)).toString().simplified();
                                              out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
                                          }
                                      }

@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include"EVENEMENT.h"
 #include <QMainWindow>
-#include <QMainWindow>
+#include<QtCharts/QPieSeries>
+#include<QtCharts/QPieSlice>
 #include <QMessageBox>
 #include <QDialog>
 
@@ -43,6 +44,7 @@
 #include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QCoreApplication>
+
 namespace Ui
 {
 class MainWindow;

@@ -4,6 +4,8 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 #include <QDate>
+#include<QtCharts/QPieSeries>
+#include<QtCharts/QPieSlice>
 
 class EVENEMENT
 {

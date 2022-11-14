@@ -1,8 +1,12 @@
-#include "evenement.h"
+#include "EVENEMENT.h"
 #include <QSqlQuery>
 #include<QSqlQueryModel>
 #include <QtDebug>
 #include <QObject>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include<QString>
 
 EVENEMENT::EVENEMENT()
 {
@@ -51,7 +55,7 @@ bool EVENEMENT::Ajouter()
 QSqlQueryModel* EVENEMENT::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-    model->setQuery(" SELECT* from EVENMENT");
+    model->setQuery(" SELECT* from EVENEMENT");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("DATE-E"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("DEPENSE"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("TYPE"));

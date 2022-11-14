@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       +=sql
-
+QT        += core gui sql core network multimedia multimediawidgets charts serialport printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui charts
 
 TARGET = gestion_des_evenement
 TEMPLATE = app
