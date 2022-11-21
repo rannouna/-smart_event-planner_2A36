@@ -70,6 +70,13 @@ private slots:
     void on_radioButton_dcroissant_clicked();
     void on_statsmed_clicked();
         void on_btn_imp_clicked();
+
+        void on_afficher_doubleClicked(const QModelIndex &index);
+
+        void on_calendarWidget_clicked(const QDate &date);
+
+        void on_btn_calculer_clicked();
+
 private:
     Ui::MainWindow *ui;
     EVENEMENT Etmp;

@@ -56,11 +56,11 @@ QSqlQueryModel* EVENEMENT::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery(" SELECT* from EVENEMENT");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("DATE-E"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_EVENEMENT"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("DEPENSE"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("TYPE"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("THEME"));
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("ID_EVENEMENT"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("DATE_E"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("TYPE"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("THEME"));
     return model;
 }
 
@@ -78,7 +78,7 @@ bool EVENEMENT::modifier()
 {
     QSqlQuery query;
     QString ID_EVENEMENT_string=QString::number(ID_EVENEMENT);
-    query.prepare("update EVENEMENT set DATE_I=:DATE_I, where ID_EVENEMENT=:ID_EVENEMENT");
+    query.prepare("update EVENEMENT set DATE_E=:DATE_E where ID_EVENEMENT=:ID_EVENEMENT");
     query.bindValue(":ID_EVENEMENT",ID_EVENEMENT_string);
     query.bindValue(":DATE_E",DATE_E);
 
@@ -114,3 +114,30 @@ QSqlQueryModel *EVENEMENT::trid(){
 
    return model;
 }
+
+QSqlQuery EVENEMENT::request(QString date)
+{
+    QSqlQuery query;
+    query.prepare("select * from EVENEMENT where DATE_E= TO_DATE('"+date+"','YYYY-MM-DD')");
+    query.addBindValue(date);
+    query.exec();
+    return query;
+}
+//*************Calculer
+
+int EVENEMENT::Calculer()
+{
+    QSqlQuery query;
+     query.prepare("select DEPENSE from EVENEMENT");
+
+     query.exec();
+      int total=0;
+
+     while(query.next()){
+       total=total+query.value(0).toInt();
+
+     }
+
+     return total;
+}
+

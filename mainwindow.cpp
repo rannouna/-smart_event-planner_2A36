@@ -10,9 +10,6 @@
 #include <QLineSeries>
 #include"EVENEMENT.h"
 
-
-
-#include <QIntValidator>
 #include "QSqlQuery"
 #include "QStringListModel"
 #include<QFileDialog>
@@ -93,8 +90,6 @@
 #include <QFileDialog>
 
 
-
-#include <QIntValidator>
 #include "QSqlQuery"
 #include "QStringListModel"
 #include<QFileDialog>
@@ -147,7 +142,9 @@ MainWindow::MainWindow(QWidget *parent):
     ui->lineEdit_Depense->setValidator(new QIntValidator(0,999999,this));
     ui->lineEditID_SUPP->setValidator(new QIntValidator(0,999999,this));
     ui->afficher->setModel(Etmp.afficher());
+
 }
+#include "calendar.h"
 
 MainWindow::~MainWindow()
 {
@@ -380,3 +377,53 @@ QPieSeries *series = new QPieSeries();
 
 
     }
+
+
+
+void MainWindow::on_afficher_doubleClicked(const QModelIndex &index)
+{
+    QString val = ui->afficher->model()->data(index).toString();
+    val = val.mid(0,10);
+    qDebug()<< val;
+
+    QDate Date = QDate::fromString(val,"yyyy-MM-dd");
+    ui->calendarWidget->setSelectedDate(Date);
+}
+
+void MainWindow::on_calendarWidget_clicked(const QDate &date)
+{
+    QDate Date =  ui->calendarWidget->selectedDate();
+    QString tmp = Date.toString("yyyy-MM-dd");
+   QSqlQuery query;
+
+
+   query =Etmp.request(tmp);
+   bool test = false;
+   if(query.exec())
+   {
+       while(query.next())
+       {
+           test = true;
+           QMessageBox::information(nullptr, QObject::tr("Date exist"),
+                       QObject::tr("Date exist.\n"
+                                   "Click ok to exit."), QMessageBox::Cancel);
+       }
+   }
+   if(test == false )
+   {
+       QMessageBox::warning(nullptr, QObject::tr("Date n'existe pas "),
+                   QObject::tr("Date n'exist.\n"
+                               "Click ok to exit."), QMessageBox::Cancel);
+
+   }
+
+
+}
+
+void MainWindow::on_btn_calculer_clicked()
+{
+    QString total=QString::number(Etmp.Calculer());
+
+    ui->label_total->setText(total);
+
+}

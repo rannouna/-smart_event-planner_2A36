@@ -38,6 +38,8 @@ public:
     QSqlQueryModel *tri();
     QSqlQueryModel * trid();
 
+    QSqlQuery request(QString);
+    int Calculer();
 
 
 
