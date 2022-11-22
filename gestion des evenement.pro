@@ -7,6 +7,7 @@
 QT        += core gui sql core network multimedia multimediawidgets charts serialport printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += core gui charts
+ QT += serialport
 
 TARGET = gestion_des_evenement
 TEMPLATE = app
@@ -26,12 +27,14 @@ CONFIG += c++11
 
 SOURCES += \
     EVENEMENT.cpp \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     EVENEMENT.h \
+    arduino.h \
         mainwindow.h \
     connection.h
 
