@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 
 
-    QApplication app( argc, argv );
+   /* QApplication app( argc, argv );
 
     // Set up database
     QString dbName( "Projet2A.db3" );
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     myLabel.setPixmap( outPixmap );
     myLabel.show();
 
-    return app.exec();
+    //return app.exec();*/
 }
 
 

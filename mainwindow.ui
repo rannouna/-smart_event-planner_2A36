@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1237</width>
-    <height>807</height>
+    <width>1352</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>550</x>
       <y>20</y>
       <width>731</width>
-      <height>671</height>
+      <height>611</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -33,10 +33,10 @@
      <widget class="QGroupBox" name="Code_lieu_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>0</y>
-        <width>871</width>
-        <height>651</height>
+        <width>861</width>
+        <height>581</height>
        </rect>
       </property>
       <property name="title">
@@ -270,7 +270,7 @@
          <x>440</x>
          <y>20</y>
          <width>411</width>
-         <height>281</height>
+         <height>161</height>
         </rect>
        </property>
        <property name="text">
@@ -485,7 +485,7 @@
    <widget class="QLabel" name="label_32">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>610</y>
       <width>161</width>
       <height>20</height>
@@ -564,13 +564,39 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="ard">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>660</y>
+      <width>131</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>entrer le code</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="recherch_ard">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>680</y>
+      <width>112</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>recherch_ard</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1237</width>
+     <width>1352</width>
      <height>30</height>
     </rect>
    </property>

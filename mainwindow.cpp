@@ -17,6 +17,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tab_lieu->setModel(LI.afficher_lieu());
     QPixmap pix("Users\felah\Downloads\picture.jpg");
     ui->label_pic->setPixmap(pix);
+    int rete=A.connect_arduino_lieu(); // lancer la connexion à arduino
+            switch(rete){
+            case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                break;
+            case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+               break;
+            case(-1):qDebug() << "arduino is not available";
+            }
+             QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(login_arduino_lieu())); // permet de lancer
+             //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
 
 MainWindow::~MainWindow()
@@ -263,4 +273,58 @@ void MainWindow::on_stat_clicked()
 
 }
 
+void MainWindow::login_arduino_lieu(){
 
+    data_lieu=A.read_from_arduino_lieu();
+
+
+   QString ch1=QString::fromUtf8(data_lieu);
+
+if(ch1=="*")
+{
+    ch="";
+}else
+{
+         ch=ch+ch1;
+}
+         ui->ard->setText(ch);
+}
+
+void MainWindow::on_recherch_ard_clicked()
+{
+    QSqlQuery qry;
+    QString lieu,dispo;
+   QString code_ard=ui->ard->text();
+    qry.prepare("select * from LIEU where CODE_LIEU= :code" );
+    qry.bindValue(":code", code_ard );
+    if (qry.exec())
+    {
+        while(qry.next())
+        {
+            dispo=qry.value(4).toString();
+        }
+    }
+
+        if(dispo=="oui")
+        {
+            A.write_to_arduino_lieu("1")  ;
+
+            QMessageBox::information(nullptr,QObject::tr("OK"),
+                                           QObject::tr("disponible\n"
+                                               "Click Cancel to Exit."),QMessageBox::Cancel);
+
+
+
+
+        }
+        else
+        {
+              A.write_to_arduino_lieu("2")  ;
+            QMessageBox::critical(nullptr,QObject::tr("Not OK"),
+                                           QObject::tr("non disponible\n"
+                                               "Click Cancel to Exit."),QMessageBox::Cancel);
+
+
+
+}
+}

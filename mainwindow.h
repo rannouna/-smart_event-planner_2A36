@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "arduinolieu.h"
 #include "lieu.h"
 #include <QPainter>
 #include <QtPrintSupport/QPrintPreviewDialog>
@@ -9,6 +10,8 @@
 #include <QPrintDialog>
 #include <QFileDialog>
 #include <QLabel>
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class MainWindow;}
@@ -41,7 +44,7 @@ private slots:
     void on_tab_lieu_clicked(const QModelIndex &index);
 
 
-
+void login_arduino_lieu();
 
     void on_upload_clicked();
 
@@ -49,9 +52,15 @@ private slots:
 
     void on_stat_clicked();
 
+    void on_recherch_ard_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     lieu LI;
+    arduinolieu A;
+      QByteArray data_lieu;
+        QString ch="";
 };
 
 #endif // MAINWINDOW_H
