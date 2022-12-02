@@ -20,20 +20,30 @@ SOURCES += \
     arduino.cpp \
     connection.cpp \
     employer.cpp \
+    facteur.cpp \
+    facteur_inter.cpp \
+    first.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
+    piechartwidget.cpp \
     signe.cpp
 
 HEADERS += \
     arduino.h \
     connection.h \
     employer.h \
+    facteur.h \
+    facteur_inter.h \
+    first.h \
     mainwindow.h \
     menu.h \
+    piechartwidget.h \
     signe.h
 
 FORMS += \
+    facteur_inter.ui \
+    first.ui \
     mainwindow.ui \
     menu.ui \
     signe.ui

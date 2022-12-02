@@ -27,7 +27,7 @@
      <string>Gestion Employer</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btnfact">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>2</string>
+     <string>Gestion Facteur</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">

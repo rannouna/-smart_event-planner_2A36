@@ -19,6 +19,8 @@ public:
 private slots:
     void on_btnemp_clicked();
 
+    void on_btnfact_clicked();
+
 private:
     Ui::menu *ui;
 };
