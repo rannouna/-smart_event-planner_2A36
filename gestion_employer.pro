@@ -17,9 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    EVENEMENT.cpp \
     arduino.cpp \
     connection.cpp \
     employer.cpp \
+    event_inter.cpp \
     facteur.cpp \
     facteur_inter.cpp \
     first.cpp \
@@ -30,9 +32,11 @@ SOURCES += \
     signe.cpp
 
 HEADERS += \
+    EVENEMENT.h \
     arduino.h \
     connection.h \
     employer.h \
+    event_inter.h \
     facteur.h \
     facteur_inter.h \
     first.h \
@@ -42,6 +46,7 @@ HEADERS += \
     signe.h
 
 FORMS += \
+    event_inter.ui \
     facteur_inter.ui \
     first.ui \
     mainwindow.ui \

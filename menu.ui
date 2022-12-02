@@ -40,7 +40,7 @@
      <string>Gestion Facteur</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="btnevent">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>3</string>
+     <string>Gestion Evennement</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
