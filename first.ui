@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>966</width>
+    <width>1103</width>
     <height>580</height>
    </rect>
   </property>
@@ -527,7 +527,7 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;
       <rect>
        <x>180</x>
        <y>40</y>
-       <width>831</width>
+       <width>941</width>
        <height>591</height>
       </rect>
      </property>

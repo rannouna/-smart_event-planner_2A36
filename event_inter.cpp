@@ -86,11 +86,8 @@
 #include <QtCharts>
 #include <QChartView>
 #include <QLineSeries>
-
 #include <QMediaPlayer>
 #include <QFileDialog>
-
-
 #include "QSqlQuery"
 #include "QStringListModel"
 #include<QFileDialog>

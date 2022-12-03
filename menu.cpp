@@ -3,6 +3,8 @@
 #include "facteur_inter.h"
 #include "spon_inter.h"
 #include "event_inter.h"
+#include "lieu_inter.h"
+
 menu::menu(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::menu)
@@ -35,6 +37,14 @@ void menu::on_btnevent_clicked()
     eve->show();
 
 }
+
+void menu::on_btnlieu_clicked()
+{
+    lieu_inter *lieux = new lieu_inter();
+    lieux->show();
+
+}
+
 
 void menu::on_btnspon_clicked()
 {

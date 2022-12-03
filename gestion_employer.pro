@@ -25,6 +25,8 @@ SOURCES += \
     facteur.cpp \
     facteur_inter.cpp \
     first.cpp \
+    lieu.cpp \
+    lieu_inter.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
@@ -42,17 +44,21 @@ HEADERS += \
     facteur.h \
     facteur_inter.h \
     first.h \
+    lieu.h \
+    lieu_inter.h \
     mainwindow.h \
     menu.h \
     piechartwidget.h \
     signe.h \
     spon_inter.h \
-    sponsor.h
+    sponsor.h \
+    webaxwidget.h
 
 FORMS += \
     event_inter.ui \
     facteur_inter.ui \
     first.ui \
+    lieu_inter.ui \
     mainwindow.ui \
     menu.ui \
     signe.ui \
