@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "ui_menu.h"
 #include "facteur_inter.h"
+#include "spon_inter.h"
 #include "event_inter.h"
 menu::menu(QWidget *parent) :
     QMainWindow(parent),
@@ -32,5 +33,12 @@ void menu::on_btnevent_clicked()
 {
     event_inter *eve = new event_inter();
     eve->show();
+
+}
+
+void menu::on_btnspon_clicked()
+{
+    spon_inter *spon = new spon_inter();
+    spon->show();
 
 }

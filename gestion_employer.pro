@@ -29,7 +29,9 @@ SOURCES += \
     mainwindow.cpp \
     menu.cpp \
     piechartwidget.cpp \
-    signe.cpp
+    signe.cpp \
+    spon_inter.cpp \
+    sponsor.cpp
 
 HEADERS += \
     EVENEMENT.h \
@@ -43,7 +45,9 @@ HEADERS += \
     mainwindow.h \
     menu.h \
     piechartwidget.h \
-    signe.h
+    signe.h \
+    spon_inter.h \
+    sponsor.h
 
 FORMS += \
     event_inter.ui \
@@ -51,7 +55,8 @@ FORMS += \
     first.ui \
     mainwindow.ui \
     menu.ui \
-    signe.ui
+    signe.ui \
+    spon_inter.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

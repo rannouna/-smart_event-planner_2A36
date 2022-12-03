@@ -53,7 +53,7 @@
      <string>Gestion Evennement</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="btnspon">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>4</string>
+     <string>Gestion Sponsor</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
