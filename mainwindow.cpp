@@ -27,6 +27,11 @@ MainWindow::MainWindow(QWidget *parent)
             }
              QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(login_arduino_lieu())); // permet de lancer
              //le slot update_label suite à la reception du signal readyRead (reception des données).
+             //map
+              QSettings settings(QSettings::IniFormat, QSettings::UserScope,
+                                 QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+              ui->WebBrowser->dynamicCall("Navigate(const QString&)", "https://www.google.com/maps/place/ESPRIT/@36.9016729,10.1713215,15z");
 }
 
 MainWindow::~MainWindow()

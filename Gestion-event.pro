@@ -3,6 +3,7 @@ QT       += printsupport
 QT       += widgets
 QT       +=charts
 QT       +=serialport
+QT       += core gui network multimedia multimediawidgets axcontainer
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -29,7 +30,8 @@ HEADERS += \
     arduinolieu.h \
     connection.h \
     lieu.h \
-    mainwindow.h
+    mainwindow.h \
+    webaxwidget.h
 
 FORMS += \
     mainwindow.ui
