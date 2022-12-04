@@ -4,6 +4,7 @@
 #include "spon_inter.h"
 #include "event_inter.h"
 #include "lieu_inter.h"
+#include "client_inter.h"
 
 menu::menu(QWidget *parent) :
     QMainWindow(parent),
@@ -50,5 +51,12 @@ void menu::on_btnspon_clicked()
 {
     spon_inter *spon = new spon_inter();
     spon->show();
+
+}
+
+void menu::on_btnclient_clicked()
+{
+    client_inter *cli = new client_inter();
+    cli->show();
 
 }

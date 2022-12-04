@@ -19,6 +19,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     EVENEMENT.cpp \
     arduino.cpp \
+    client.cpp \
+    client_inter.cpp \
     connection.cpp \
     employer.cpp \
     event_inter.cpp \
@@ -32,12 +34,16 @@ SOURCES += \
     menu.cpp \
     piechartwidget.cpp \
     signe.cpp \
+    smtp.cpp \
     spon_inter.cpp \
-    sponsor.cpp
+    sponsor.cpp \
+    stat_age.cpp
 
 HEADERS += \
     EVENEMENT.h \
     arduino.h \
+    client.h \
+    client_inter.h \
     connection.h \
     employer.h \
     event_inter.h \
@@ -50,11 +56,14 @@ HEADERS += \
     menu.h \
     piechartwidget.h \
     signe.h \
+    smtp.h \
     spon_inter.h \
     sponsor.h \
+    stat_age.h \
     webaxwidget.h
 
 FORMS += \
+    client_inter.ui \
     event_inter.ui \
     facteur_inter.ui \
     first.ui \
@@ -62,7 +71,8 @@ FORMS += \
     mainwindow.ui \
     menu.ui \
     signe.ui \
-    spon_inter.ui
+    spon_inter.ui \
+    stat_age.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

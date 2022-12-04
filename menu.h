@@ -27,6 +27,8 @@ private slots:
 
     void on_btnlieu_clicked();
 
+    void on_btnclient_clicked();
+
 private:
     Ui::menu *ui;
 };

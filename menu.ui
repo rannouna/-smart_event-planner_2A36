@@ -79,7 +79,7 @@
      <string>Gestion Lieu</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="btnclient">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -89,7 +89,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>6</string>
+     <string>Gestion Client</string>
     </property>
    </widget>
   </widget>
@@ -99,7 +99,7 @@
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>30</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
